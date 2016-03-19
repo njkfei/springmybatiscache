@@ -141,6 +141,7 @@ public class UserController {}
 	}
 ```
 ## MYBATIS数据库缓存
+加上注解__@Options(useCache = true,timeout = 100000,flushCache = false)__即可。
 
 ```
 	@Select("select * from ysyy_user where user_id=#{user_id} ")
