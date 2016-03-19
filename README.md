@@ -115,6 +115,7 @@ public class UserController {}
 
 ### 删除单个缓存@CacheEvict
 最好加上key,否则可能没有清除缓存
+
 ```
 	//　删除部分缓存
 	@CacheEvict(value="userCache",key="#user_id",beforeInvocation=true)
@@ -126,10 +127,10 @@ public class UserController {}
 		userDAO.updateUser(user_id,user_type);
 		return userDAO.getUser(user_id);
 	}
-	```
+```
 	
-	### 删除整个缓存
-	```
+### 删除整个缓存
+```
 	// 删除全部缓存
 	@CacheEvict(value="userCache",allEntries=true,beforeInvocation=true)
 	@RequestMapping("/clear")
@@ -138,7 +139,7 @@ public class UserController {}
 		System.out.println("clearn cache.");
 		return "clear ok";
 	}
-	```
+```
 ## MYBATIS数据库缓存
 
 ```
@@ -158,6 +159,7 @@ ab -c 100 -n 1000000 http://192.168.1.236:8080/user3/972
 ```
 
 测试结果为：
+
 ```
 This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
